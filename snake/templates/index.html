@@ -1,4 +1,7 @@
 {% load staticfiles %}
+{% block content %}
+{% endblock %}
+
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -6,9 +9,6 @@
     <title>Welcome to our game page!</title>
 
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="{% static "js/flight.js" %}"></script>
-
-    <title>Planer Finder - by Tiffani</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/static/css/bootstrap.css" rel="stylesheet">
@@ -16,18 +16,16 @@
     <!-- Custom styles for this template -->
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="/static/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/css/bootstrap-theme.min.css" rel="stylesheet">
 
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+{#    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>#}
+{#    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>#}
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 
-    <script src="/static/js/boostrap.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
     <script src="/static/js/bootstrap.min.js"></script>
     <script src="/static/js/snake.js"></script>
 
@@ -44,15 +42,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="home">Home</a>
+      <a class="navbar-brand" href={% url "home" %}>Home</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="snakes">Login</a></li>
-        <li><a href="snakes">Profile</a></li>
-        <li><a href="snakes">Snake Game</a></li>
+        <li><a href="{% url "login" %}">Login</a></li>
+        <li><a href="{% url "register" %}">Register</a></li>
+        <li><a href="{% url "snakes" %}">Profile</a></li>
+        <li><a href="{% url "snakes" %}">Snake Game</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="snakes">Logout</a></li>
@@ -63,3 +62,4 @@
 
 </body>
 </html>
+
