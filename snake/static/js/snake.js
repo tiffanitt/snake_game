@@ -172,6 +172,19 @@ $(document).ready(function () {
 
     function gameOver() {
         clearInterval(gameLoopInterval);
+        data = {score: score, game: 'snake'};
+        $.ajax({
+            url: "/more_score/",
+            type: "POST",
+            dataType: "json",
+            data: JSON.stringify(data),
+            success: function(response){
+                console.log(response)
+            },
+            error: function(response){
+                console.log(response)
+            }
+        });
         var x;
             if (confirm("Restart Game?") == true) {
                 x = "Restart?";
